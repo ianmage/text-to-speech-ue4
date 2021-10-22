@@ -2,6 +2,7 @@ using UnrealBuildTool;
 using System;
 using System.IO;
 
+
 namespace UnrealBuildTool.Rules
 {
 	public class TextToSpeech : ModuleRules
@@ -12,9 +13,7 @@ namespace UnrealBuildTool.Rules
 			{
 			});
 
-			PrivateIncludePaths.AddRange(new string[]
-			{
-			});
+			PrivateIncludePaths.Add("ThirdParty/FMRTTSLib");
 
 			PublicDependencyModuleNames.AddRange(new string[]
 			{
@@ -37,11 +36,15 @@ namespace UnrealBuildTool.Rules
 			//PrivateIncludePathModuleNames.Add("Media");
 			//PrivateIncludePathModuleNames.Add("Engine");
 
-			PrivatePCHHeaderFile = "TextToSpeechPCH.h";
+			//PrivatePCHHeaderFile = "TextToSpeechPCH.h";
 
-			LoadFMRTTSLib(Target);
+			//LoadFMRTTSLib(Target);
+			PublicAdditionalLibraries.Add(
+				Path.Combine(Target.WindowsPlatform.ToolChainDir, "atlmfc/lib", Target.WindowsPlatform.GetArchitectureSubpath(), "atls.lib")
+			);
 		}
-		
+
+
 		public bool LoadFMRTTSLib(ReadOnlyTargetRules Target)
 		{
 			if (Target.Platform != UnrealTargetPlatform.Win64 && Target.Platform != UnrealTargetPlatform.Win32)
@@ -54,7 +57,7 @@ namespace UnrealBuildTool.Rules
 			var LibraryPath = Path.Combine(FMRTTSLibFolder, Target.Platform == UnrealTargetPlatform.Win64 ? "x64" : "x86");
 			
 			PublicSystemLibraryPaths.Add(LibraryPath);
-			
+
 			PublicAdditionalLibraries.Add(Path.Combine(LibraryPath, "FMRTTSLib.lib"));
 			PrivateIncludePaths.Add(Path.Combine(FMRTTSLibFolder, "include"));
 

@@ -1,7 +1,9 @@
 #pragma once
 
-#include "TextToSpeechPCH.h"
+//#include "TextToSpeechPCH.h"
+#include "Sound/SoundWaveProcedural.h"
 #include "TextToSpeechSoundWave.generated.h"
+
 
 UCLASS()
 class TEXTTOSPEECH_API UTextToSpeechSoundWave : public USoundWaveProcedural

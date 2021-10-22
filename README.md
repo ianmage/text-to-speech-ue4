@@ -1,8 +1,7 @@
 TextToSpeech UE4 plugin
 =======================
 
-Text-to-speech synthesis for Unreal Engine 4.21 via Windows SAPI.
-Based on https://github.com/indomitusgames/TextToSpeech-UE4 (major bugfixes/improvements).
+Text-to-speech synthesis for Unreal Engine 4 via Windows SAPI.
 
 How to use it
 -------------

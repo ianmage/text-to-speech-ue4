@@ -1,10 +1,12 @@
 #include "TextToSpeechLibrary.h"
-#include "TextToSpeechPCH.h"
+//#include "TextToSpeechPCH.h"
 #include "TextToSpeechSoundWave.h"
+
 
 UTextToSpeechLibrary::UTextToSpeechLibrary(const class FObjectInitializer& PCIP) : Super(PCIP)
 {
 }
+
 
 USoundWave* UTextToSpeechLibrary::TextToWave(FString VoiceRequiredAttributes, FString VoiceOptionalAttributes, int32 Rate, FString Text)
 {

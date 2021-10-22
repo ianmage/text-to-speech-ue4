@@ -1,15 +1,17 @@
 #include "TextToSpeechSoundWave.h"
-#include "TextToSpeechPCH.h"
+//#include "TextToSpeechPCH.h"
 #include "FMRTTSLib.h"
+
 
 UTextToSpeechSoundWave::UTextToSpeechSoundWave(const FObjectInitializer &ObjectInitializer) : Super(ObjectInitializer)
 {
 }
 
+
 bool UTextToSpeechSoundWave::Initialize(const FString &VoiceRequiredAttributes, const FString &VoiceOptionalAttributes, int32 Rate, const FString &Text)
 {
 	unsigned long BytesRead;
-	uint8 *TTSAudioBuffer = (uint8*)FMRTTSLib::FMRTTSLibMain::TextToWav(*VoiceRequiredAttributes, *VoiceOptionalAttributes, Rate, *Text, &BytesRead);
+	uint8 *TTSAudioBuffer = (uint8*)NS_FMRTTS::FMRTTSLib::TextToWav(*VoiceRequiredAttributes, *VoiceOptionalAttributes, Rate, *Text, &BytesRead);
 	
 	if (TTSAudioBuffer)
 	{

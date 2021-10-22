@@ -1,4 +1,5 @@
-#include "TextToSpeechPCH.h"
+//#include "TextToSpeechPCH.h"
+
 
 class FTextToSpeechModule : public IModuleInterface
 {
@@ -8,9 +9,11 @@ class FTextToSpeechModule : public IModuleInterface
 
 IMPLEMENT_MODULE(FTextToSpeechModule, TextToSpeech)
 
+
 void FTextToSpeechModule::StartupModule()
 {
 }
+
 
 void FTextToSpeechModule::ShutdownModule()
 {
