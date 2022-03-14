@@ -11,6 +11,7 @@ namespace UnrealBuildTool.Rules
 		{
 			PublicIncludePaths.AddRange(new string[]
 			{
+				Path.Combine(Target.WindowsPlatform.ToolChainDir, "atlmfc/include")
 			});
 
 			PrivateIncludePaths.Add("ThirdParty/FMRTTSLib");
